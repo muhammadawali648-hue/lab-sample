@@ -42,6 +42,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        // Prevent browser back button
+        return redirect('/')->with('logout', true);
     }
 }

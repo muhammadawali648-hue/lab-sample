@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SampleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminResetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,8 +11,21 @@ use App\Http\Controllers\ProfileController;
 |--------------------------------------------------------------------------
 */
 
-// Root: cek login dulu
+// Root: redirect to login page
 Route::get('/', function () {
+    return redirect()->route('login');
+});
+
+// Admin Reset Routes
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/reset', [AdminResetController::class, 'index'])->name('reset');
+    Route::post('/reset', [AdminResetController::class, 'reset'])->name('reset.process');
+    Route::post('/clear', [AdminResetController::class, 'clearAll'])->name('reset.clear');
+});
+
+
+// Protected redirect for logged in users
+Route::get('/home', function () {
     return auth()->check()
         ? redirect()->route('samples.index')
         : redirect()->route('login');
