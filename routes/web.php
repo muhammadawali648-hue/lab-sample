@@ -11,6 +11,15 @@ use App\Http\Controllers\AdminResetController;
 |--------------------------------------------------------------------------
 */
 
+// Healthcheck endpoint for Railway
+Route::get('/health', function () {
+    return response()->json([
+        'status' => 'ok',
+        'timestamp' => now()->toISOString(),
+        'app' => 'Laravel'
+    ], 200);
+});
+
 // Root: redirect to login page
 Route::get('/', function () {
     return redirect()->route('login');
