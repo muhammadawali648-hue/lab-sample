@@ -23,9 +23,6 @@ class ForceHttps
             return redirect()->secure($request->getRequestUri());
         }
 
-        // Set trusted proxies for Railway
-        $request->setTrustedProxies([$request->ip()]);
-
         return $next($request);
     }
 }
