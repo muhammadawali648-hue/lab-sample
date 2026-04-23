@@ -41,10 +41,10 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        // ✅ Auto login dan redirect ke dashboard
+        // ✅ Auto login dan redirect ke samples (main page)
         auth()->login($user);
         
-        return redirect()->route('dashboard')
+        return redirect()->route('samples.index')
             ->with('success', 'Registrasi berhasil! Selamat datang.');
     }
 }
