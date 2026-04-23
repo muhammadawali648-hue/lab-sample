@@ -1,8 +1,6 @@
 {
   "deploy": {
     "startCommand": "sh -c 'composer install --no-dev --optimize-autoloader && npm install && npm run build && cp .env.example .env && php artisan key:generate --force && php artisan migrate --force || true && php artisan db:seed --force || true && php artisan serve --host=0.0.0.0 --port=$PORT'",
-    "healthcheckPath": "/health",
-    "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 3
   }
