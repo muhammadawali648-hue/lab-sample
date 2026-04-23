@@ -94,6 +94,12 @@
                 dropdown.classList.add('hidden');
             }
         });
+
+        // Toggle mobile sidebar
+        function toggleMobileSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('-translate-x-full');
+        }
     </script>
 
 </head>
@@ -102,8 +108,15 @@
 
 <div class="flex h-screen">
 
+<!-- MOBILE MENU BUTTON -->
+<div class="lg:hidden fixed top-4 left-4 z-50">
+    <button onclick="toggleMobileSidebar()" class="p-2 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700">
+        <i data-lucide="menu" class="w-5 h-5 text-slate-900 dark:text-slate-100"></i>
+    </button>
+</div>
+
 <!-- SIDEBAR -->
-<div class="w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col">
+<div id="sidebar" class="fixed lg:relative inset-y-0 left-0 z-40 w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
 
     <!-- Sidebar Header -->
     <div class="p-6 border-b border-slate-200 dark:border-slate-700">
