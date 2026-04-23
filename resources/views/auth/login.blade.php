@@ -175,7 +175,9 @@
                         </div>
                         <input id="password" name="password" type="password" required
                                class="appearance-none relative block w-full pl-10 pr-3 py-2.5 border border-slate-300 dark:border-slate-600 placeholder-slate-400 dark:placeholder-slate-500 text-sm text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-lab-500 focus:border-lab-500 focus:z-10"
-                               placeholder="Enter your password">
+                               placeholder="Enter your password"
+                               pattern="[a-zA-Z].*" 
+                               title="Password harus dimulai dengan huruf, tidak boleh angka atau karakter khusus di karakter pertama.">
                     </div>
                 </div>
 
