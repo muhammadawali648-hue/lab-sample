@@ -12,7 +12,6 @@ nixPkgs = [
   "php82Extensions.tokenizer",
   "php82Extensions.xml",
   "php82Extensions.ctype",
-  "php82Extensions.json",
   "php82Extensions.opcache",
   "freetype",
   "libpng",
