@@ -26,23 +26,19 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        // Check if user already exists
-        if (User::count() >= 1) {
-            return redirect()->route('login')
-                ->with('error', 'Registrasi ditolak! Hanya satu akun yang diperbolehkan.');
-        }
-
         $request->validate([
             'username' => ['required', 'string', 'max:255', 'unique:users,username'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        User::create([
+        $user = User::create([
             'username' => $request->username,
+            'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered(new \App\Models\User));
+        event(new Registered($user));
 
         // ✅ Redirect ke halaman login
         return redirect()->route('login')
