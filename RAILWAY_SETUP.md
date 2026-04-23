@@ -51,7 +51,7 @@ php artisan key:generate --show
 ### 1. Push to GitHub
 ```bash
 git add .
-git commit -m "Setup Railway deployment with MySQL using Docker"
+git commit -m "Setup Railway deployment with MySQL"
 git push origin main
 ```
 
@@ -59,7 +59,7 @@ git push origin main
 1. Go to [railway.app](https://railway.app)
 2. Click "New Project" > "Deploy from GitHub repo"
 3. Select your `muhammadawali648-hue/lab-sample` repository
-4. Railway akan menggunakan Dockerfile untuk build
+4. Railway akan auto-detect Laravel dan deploy langsung
 
 ### 3. Add MySQL Database
 1. In your Railway project, click "New Service"
