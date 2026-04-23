@@ -15,7 +15,8 @@
 
             <div class="mb-3">
                 <label>Username</label>
-                <input type="text" name="username" class="form-control" required>
+                <input type="text" name="username" class="form-control" required pattern="[a-zA-Z]+" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" title="Username hanya boleh mengandung huruf, tidak boleh angka atau karakter khusus.">
+                <small class="text-muted">Username hanya boleh mengandung huruf (a-z, A-Z)</small>
             </div>
 
             
