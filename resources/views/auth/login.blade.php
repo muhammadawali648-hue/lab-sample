@@ -106,7 +106,7 @@
 
         <!-- Login Form -->
         <div class="bg-white dark:bg-slate-800 py-8 px-6 shadow-xl rounded-2xl border border-slate-200 dark:border-slate-700">
-            <form method="POST" action="{{ route('login') }}" class="space-y-6">
+            <form method="POST" action="https://lab-sample-production.up.railway.app/login" class="space-y-6">
                 @csrf
 
                 <!-- Success Message -->

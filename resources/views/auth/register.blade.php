@@ -10,7 +10,7 @@
     <div class="card shadow p-4" style="width:400px;">
         <h3 class="text-center mb-4">Register Akun</h3>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="https://lab-sample-production.up.railway.app/register">
             @csrf
 
             <div class="mb-3">
