@@ -59,7 +59,7 @@ git push origin main
 1. Go to [railway.app](https://railway.app)
 2. Click "New Project" > "Deploy from GitHub repo"
 3. Select your `muhammadawali648-hue/lab-sample` repository
-4. Railway akan auto-detect Laravel dan deploy langsung
+4. Railway akan menggunakan nixpacks.toml untuk build otomatis
 
 ### 3. Add MySQL Database
 1. In your Railway project, click "New Service"
