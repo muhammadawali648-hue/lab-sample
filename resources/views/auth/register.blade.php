@@ -22,7 +22,8 @@
             
             <div class="mb-3">
                 <label>Password</label>
-                <input type="password" name="password" class="form-control" required>
+                <input type="password" name="password" class="form-control" required pattern="[a-zA-Z].*" title="Password harus dimulai dengan huruf, tidak boleh angka atau karakter khusus di karakter pertama.">
+                <small class="text-muted">Password harus dimulai dengan huruf (a-z, A-Z)</small>
             </div>
 
             <div class="mb-3">

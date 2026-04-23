@@ -28,9 +28,10 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'username' => ['required', 'string', 'max:255', 'unique:users,username', 'regex:/^[a-zA-Z]+$/'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed', Rules\Password::defaults(), 'regex:/^[a-zA-Z]/'],
         ], [
             'username.regex' => 'Username hanya boleh mengandung huruf, tidak boleh angka atau karakter khusus.',
+            'password.regex' => 'Password harus dimulai dengan huruf, tidak boleh angka atau karakter khusus di karakter pertama.',
         ]);
 
         $user = User::create([
@@ -40,8 +41,10 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        // ✅ Redirect ke halaman login
-        return redirect()->route('login')
-            ->with('success', 'Registrasi berhasil! Silakan login.');
+        // ✅ Auto login dan redirect ke dashboard
+        auth()->login($user);
+        
+        return redirect()->route('dashboard')
+            ->with('success', 'Registrasi berhasil! Selamat datang.');
     }
 }
