@@ -14,6 +14,11 @@
             @csrf
 
             <div class="mb-3">
+                <label>Nama Lengkap</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control" required>
             </div>
