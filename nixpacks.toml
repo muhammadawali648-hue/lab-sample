@@ -2,6 +2,7 @@
 nixPkgs = [
   "php82",
   "php82Packages.composer",
+  "php82Extensions.gd",
   "php82Extensions.mbstring",
   "php82Extensions.pdo",
   "php82Extensions.pdo_mysql",
@@ -12,17 +13,24 @@ nixPkgs = [
   "php82Extensions.xml",
   "php82Extensions.ctype",
   "php82Extensions.json",
-  "php82Extensions.opcache"
+  "php82Extensions.opcache",
+  "freetype",
+  "libpng",
+  "nodejs"
 ]
 
 [phases.build]
 cmds = [
-  "composer install --no-dev --optimize-autoloader",
+  "composer install --no-dev --optimize-autoloader --ignore-platform-req=ext-gd",
+  "npm install",
+  "npm run build",
   "cp .env.example .env",
   "php artisan key:generate --force",
-  "php artisan migrate --force || true",
+  "php artisan config:clear",
+  "php artisan config:cache",
+  "php artisan route:cache",
   "php artisan storage:link"
 ]
 
 [start]
-cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
+cmd = "sh -c 'php artisan migrate --force || true && php artisan db:seed --force || true && php artisan serve --host=0.0.0.0 --port=$PORT'"
