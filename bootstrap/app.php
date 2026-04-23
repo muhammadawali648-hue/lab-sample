@@ -17,7 +17,6 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->web(append: [
             \App\Http\Middleware\PreventBackHistory::class,
-            \App\Http\Middleware\ForceHttps::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
