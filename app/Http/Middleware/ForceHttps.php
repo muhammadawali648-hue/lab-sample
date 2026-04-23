@@ -16,9 +16,15 @@ class ForceHttps
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->secure() && app()->environment('production')) {
+        // Check if request is secure or behind HTTPS proxy (Railway SSL termination)
+        $isSecure = $request->secure() || $request->header('X-Forwarded-Proto') === 'https';
+
+        if (!$isSecure) {
             return redirect()->secure($request->getRequestUri());
         }
+
+        // Set trusted proxies for Railway
+        $request->setTrustedProxies([$request->ip()]);
 
         return $next($request);
     }
