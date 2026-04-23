@@ -11,6 +11,17 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->redirectGuestsTo(function ($request) {
+            return route('login');
+        });
+
+        // Force HTTPS in production
+        if (env('FORCE_HTTPS', false)) {
+            $middleware->web(append: [
+                \App\Http\Middleware\ForceHttps::class,
+            ]);
+        }
+
         $middleware->web(append: [
             \App\Http\Middleware\PreventBackHistory::class,
         ]);
