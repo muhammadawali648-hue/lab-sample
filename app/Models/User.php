@@ -19,8 +19,25 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username',
+        'email',
         'password',
     ];
+
+    /**
+     * Find the user instance for the given username.
+     */
+    public function findForPassport(string $username): ?User
+    {
+        return $this->where('username', $username)->first();
+    }
+
+    /**
+     * Get the name of the unique identifier for the user.
+     */
+    public function getAuthIdentifierName(): string
+    {
+        return 'username';
+    }
 
     /**
      * The attributes that should be hidden for serialization.
