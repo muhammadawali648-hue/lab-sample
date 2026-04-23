@@ -11,14 +11,13 @@ nixPkgs = [
   "php82Extensions.zip",
   "php82Extensions.tokenizer",
   "php82Extensions.xml",
-  "php82Extensions ctype",
+  "php82Extensions.ctype",
   "php82Extensions.json",
   "php82Extensions.opcache",
   "freetype",
   "libpng",
   "libjpeg",
-  "nodejs",
-  "npm"
+  "nodejs"
 ]
 
 [phases.build]
