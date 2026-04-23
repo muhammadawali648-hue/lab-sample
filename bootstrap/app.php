@@ -15,11 +15,6 @@ return Application::configure(basePath: dirname(__DIR__))
             return route('login');
         });
 
-        // Force HTTPS always
-        $middleware->web(append: [
-            \App\Http\Middleware\ForceHttps::class,
-        ]);
-
         $middleware->web(append: [
             \App\Http\Middleware\PreventBackHistory::class,
         ]);
