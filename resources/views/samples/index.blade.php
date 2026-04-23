@@ -100,7 +100,19 @@
         // Toggle mobile sidebar
         function toggleMobileSidebar() {
             const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('mobileOverlay');
+            
             sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+        
+        // Close mobile sidebar
+        function closeMobileSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('mobileOverlay');
+            
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
         }
     </script>
 
@@ -116,6 +128,9 @@
         <i data-lucide="menu" class="w-5 h-5 text-slate-900 dark:text-slate-100"></i>
     </button>
 </div>
+
+<!-- MOBILE OVERLAY -->
+<div id="mobileOverlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-30 hidden" onclick="closeMobileSidebar()"></div>
 
 <!-- SIDEBAR -->
 <div id="sidebar" class="fixed lg:relative inset-y-0 left-0 z-40 w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
