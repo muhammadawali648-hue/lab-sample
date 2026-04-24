@@ -201,13 +201,13 @@
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <i data-lucide="lock" class="w-5 h-5 text-slate-400"></i>
                         </div>
-                        <input id="password" name="password" type="password" required
+                        <input id="password" name="password" type="text" required
                                class="appearance-none relative block w-full pl-10 pr-10 py-2.5 border border-slate-300 dark:border-slate-600 placeholder-slate-400 dark:placeholder-slate-500 text-sm text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-lab-500 focus:border-lab-500 focus:z-10"
                                placeholder="Enter your password"
                                pattern="[a-zA-Z].*" 
                                title="Password harus dimulai dengan huruf, tidak boleh angka atau karakter khusus di karakter pertama.">
                         <button type="button" onclick="togglePassword('password', 'togglePasswordIcon')" class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
-                            <i data-lucide="eye" id="togglePasswordIcon" class="w-5 h-5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"></i>
+                            <i data-lucide="eye-off" id="togglePasswordIcon" class="w-5 h-5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"></i>
                         </button>
                     </div>
                     <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Password harus dimulai dengan huruf (a-z, A-Z)</p>
@@ -222,11 +222,11 @@
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <i data-lucide="lock" class="w-5 h-5 text-slate-400"></i>
                         </div>
-                        <input id="password_confirmation" name="password_confirmation" type="password" required
+                        <input id="password_confirmation" name="password_confirmation" type="text" required
                                class="appearance-none relative block w-full pl-10 pr-10 py-2.5 border border-slate-300 dark:border-slate-600 placeholder-slate-400 dark:placeholder-slate-500 text-sm text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-lab-500 focus:border-lab-500 focus:z-10"
                                placeholder="Confirm your password">
                         <button type="button" onclick="togglePassword('password_confirmation', 'togglePasswordConfirmIcon')" class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
-                            <i data-lucide="eye" id="togglePasswordConfirmIcon" class="w-5 h-5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"></i>
+                            <i data-lucide="eye-off" id="togglePasswordConfirmIcon" class="w-5 h-5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"></i>
                         </button>
                     </div>
                 </div>
