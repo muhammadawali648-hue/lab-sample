@@ -206,7 +206,7 @@
                                placeholder="Enter your password"
                                pattern="[a-zA-Z].*" 
                                title="Password harus dimulai dengan huruf, tidak boleh angka atau karakter khusus di karakter pertama.">
-                        <button type="button" onclick="togglePassword('password', 'togglePasswordIcon')" class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
+                        <button type="button" onclick="togglePassword('password', 'togglePasswordIcon')" class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer z-10 bg-transparent border-0">
                             <i data-lucide="eye-off" id="togglePasswordIcon" class="w-5 h-5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"></i>
                         </button>
                     </div>
@@ -225,7 +225,7 @@
                         <input id="password_confirmation" name="password_confirmation" type="text" required
                                class="appearance-none relative block w-full pl-10 pr-10 py-2.5 border border-slate-300 dark:border-slate-600 placeholder-slate-400 dark:placeholder-slate-500 text-sm text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-lab-500 focus:border-lab-500 focus:z-10"
                                placeholder="Confirm your password">
-                        <button type="button" onclick="togglePassword('password_confirmation', 'togglePasswordConfirmIcon')" class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
+                        <button type="button" onclick="togglePassword('password_confirmation', 'togglePasswordConfirmIcon')" class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer z-10 bg-transparent border-0">
                             <i data-lucide="eye-off" id="togglePasswordConfirmIcon" class="w-5 h-5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"></i>
                         </button>
                     </div>
