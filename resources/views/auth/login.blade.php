@@ -70,6 +70,21 @@
             }
         }
 
+        // Toggle password visibility
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.setAttribute('data-lucide', 'eye-off');
+            } else {
+                input.type = 'password';
+                icon.setAttribute('data-lucide', 'eye');
+            }
+            lucide.createIcons();
+        }
+
         // Load saved theme
         window.onload = function() {
             const theme = localStorage.getItem('theme');
@@ -176,10 +191,13 @@
                             <i data-lucide="lock" class="w-5 h-5 text-slate-400"></i>
                         </div>
                         <input id="password" name="password" type="password" required
-                               class="appearance-none relative block w-full pl-10 pr-3 py-2.5 border border-slate-300 dark:border-slate-600 placeholder-slate-400 dark:placeholder-slate-500 text-sm text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-lab-500 focus:border-lab-500 focus:z-10"
+                               class="appearance-none relative block w-full pl-10 pr-10 py-2.5 border border-slate-300 dark:border-slate-600 placeholder-slate-400 dark:placeholder-slate-500 text-sm text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-lab-500 focus:border-lab-500 focus:z-10"
                                placeholder="Enter your password"
                                pattern="[a-zA-Z].*" 
                                title="Password harus dimulai dengan huruf, tidak boleh angka atau karakter khusus di karakter pertama.">
+                        <button type="button" onclick="togglePassword('password', 'togglePasswordIcon')" class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
+                            <i data-lucide="eye" id="togglePasswordIcon" class="w-5 h-5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"></i>
+                        </button>
                     </div>
                 </div>
 
